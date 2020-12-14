@@ -1,17 +1,4 @@
 // TODO Add a couple lines about each project
-const data = [
-  {
-    title: 'Brohitmedia',
-    subtitle: 'Fun Firebase Social Media App',
-    link: '/projects/nearestdollar/',
-    image: '/images/projects/nearestdollar.jpg',
-    date: '2015-11-20',
-    desc:
-      'Built for a social impact hackathon. ' +
-      'NearestDollar connected to your bank accounts, credit cards, ' +
-      'or debit cards and rounded up your purchases to donate the balance to ' +
-      'the charity of your choice.',
-  },
-];
+const data = [];
 
 export default data;

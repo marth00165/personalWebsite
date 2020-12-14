@@ -1,7 +1,7 @@
 const data = [
   {
     path: '/',
-    label: 'Michael D\'Angelo',
+    label: 'Rohit Pratti',
     index: true,
   },
   {
@@ -11,14 +11,6 @@ const data = [
   {
     path: '/resume',
     label: 'Resume',
-  },
-  {
-    path: '/projects',
-    label: 'Projects',
-  },
-  {
-    path: '/stats',
-    label: 'Stats',
   },
   {
     path: '/contact',

@@ -11,12 +11,10 @@ const Main = (props) => (
   <>
     <Analytics />
     <ScrollToTop />
-    <Helmet titleTemplate="%s | Michael D'Angelo" defaultTitle="Michael D'Angelo" />
+    <Helmet titleTemplate="%s | Rohit Pratti" defaultTitle="Rohit Pratti" />
     <div id="wrapper">
       <Header />
-      <div id="main">
-        {props.children}
-      </div>
+      <div id="main">{props.children}</div>
       {props.fullPage ? null : <Nav />}
     </div>
   </>

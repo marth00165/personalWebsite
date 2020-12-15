@@ -12,7 +12,7 @@ const Nav = () => (
         <img style={{ borderRadius: '0px' }} src="/images/me_icon.jpg" alt="" />
       </Link>
       <header>
-        <h2>Rohit V&apos;Pratti</h2>
+        <h2>Rohit V Pratti</h2>
         <p>
           <a href="mailto:rohit.pratti@gmail.com">rohit.pratti@gmail.com</a>
         </p>

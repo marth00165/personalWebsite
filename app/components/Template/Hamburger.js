@@ -14,11 +14,11 @@ const Hamburger = () => {
         <ul>
           {open ? (
             <li className="menu close-menu">
-              <div onClick={() => setOpen(!open)} className="menu-hover">&#10005;</div>
+              <div className="menu-hover">&#10005;</div>
             </li>
           ) : (
             <li className="menu open-menu">
-              <div onClick={() => setOpen(!open)} className="menu-hover">&#9776;</div>
+              <div className="menu-hover">&#9776;</div>
             </li>
           )}
         </ul>

@@ -9,11 +9,7 @@ const Nav = () => (
   <section id="sidebar">
     <section id="intro">
       <Link to="/" className="logo">
-        <img
-          style={{ borderRadius: '0px' }}
-          src={`/images/me_icon.jpg`}
-          alt=""
-        />
+        <img style={{ borderRadius: '0px' }} src="/images/me_icon.jpg" alt="" />
       </Link>
       <header>
         <h2>Rohit V&apos;Pratti</h2>

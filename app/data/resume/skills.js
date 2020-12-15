@@ -14,12 +14,12 @@ const skills = [
   },
   {
     title: 'React',
-    competency: 3,
+    competency: 4,
     category: ['Web Development', 'Javascript'],
   },
   {
     title: 'Bash',
-    competency: 2,
+    competency: 4,
     category: ['Tools', 'Languages'],
   },
   {
@@ -29,7 +29,7 @@ const skills = [
   },
   {
     title: 'Heroku',
-    competency: 2,
+    competency: 3,
     category: ['Web Development', 'Tools'],
   },
   {
@@ -39,13 +39,13 @@ const skills = [
   },
   {
     title: 'Express.JS',
-    competency: 2,
+    competency: 3,
     category: ['Web Development', 'Javascript'],
   },
 
   {
     title: 'Git',
-    competency: 3,
+    competency: 4,
     category: ['Tools'],
   },
   {

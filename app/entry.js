@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  BrowserRouter as Router, Switch, Route,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Featured
 import About from './views/About';
@@ -17,7 +15,7 @@ import Stats from './views/Stats';
 import './static/css/main.scss';
 
 ReactDOM.render(
-  <Router basename={BASE_PATH}>
+  <Router>
     <Switch>
       <Route exact path="/" component={Index} />
       <Route path="/about" component={About} />
@@ -29,5 +27,5 @@ ReactDOM.render(
       <Route component={NotFound} status={404} />
     </Switch>
   </Router>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );

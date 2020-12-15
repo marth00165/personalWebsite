@@ -11,7 +11,7 @@ const Nav = () => (
       <Link to="/" className="logo">
         <img
           style={{ borderRadius: '0px' }}
-          src={`${BASE_PATH}/images/me_icon.jpg`}
+          src={`/images/me_icon.jpg`}
           alt=""
         />
       </Link>

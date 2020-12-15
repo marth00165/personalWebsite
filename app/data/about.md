@@ -12,7 +12,7 @@ My Most recent employment was at [Cabana](https://cabana.life) where I developed
 
 #### Some history
 
-- My parents put a computer in my bedroom in 2001 when I was 3. I used to work on Microsoft Excel and Powerpoint without the help of any internet and was nominated by my middle school to create all our teacher's projects.
+- My parents put a computer in my bedroom in 2001 when I was 8. I used to work on Microsoft Excel and Powerpoint without the help of any internet and was nominated by my middle school to create all our teacher's projects.
 
 - In highschool I took a liking towards C++ and decided to pursure Computer Science in college.
 

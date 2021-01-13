@@ -13,6 +13,10 @@ const data = [
     label: 'Resume',
   },
   {
+    path: '/projects',
+    label: 'Projects',
+  },
+  {
     path: '/contact',
     label: 'Contact',
   },

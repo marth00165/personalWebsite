@@ -16,7 +16,7 @@ const data = [
   },
   {
     title: 'Chat With Hit',
-    subtitle: 'Chat Application made with React and Apollo GraphQL',
+    subtitle: 'Contact Me via my own messenger!',
     link: 'http://ec2-3-128-6-117.us-east-2.compute.amazonaws.com/login',
     image: '/images/projects/chatwithhit.png',
     date: '2020-17-01',

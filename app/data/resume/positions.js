@@ -1,5 +1,12 @@
 const positions = [
   {
+    company: '1-800Accountant',
+    position: 'Software Engineer',
+    link: 'https://1800accountant.com/',
+    daterange: 'February 2021',
+    points: [],
+  },
+  {
     company: 'Cabana',
     position: 'Software Engineer',
     link: 'https://cabana.life',

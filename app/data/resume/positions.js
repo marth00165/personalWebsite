@@ -1,10 +1,17 @@
 const positions = [
   {
     company: '1-800Accountant',
-    position: 'Software Engineer',
+    position: 'Dev Team Lead and Software Engineer',
     link: 'https://1800accountant.com/',
     daterange: 'February 2021',
-    points: [],
+    points: [
+      'Manage a team of 5 multicultural developers all working remote',
+      'Manage Sprint Planning for development team, working in 2 week sprints, to deliver around 100-130 story points per sprint',
+      'Coordinate between marketing and development team to help increase sales on a week by week basis',
+      'Helped Develop a full stack responsive website using React Next js, Node Express, and Custom UI components using styled components',
+      'Working on marketing campaign pages, creating form funnels and flows to gather customer leads and entity formation sales ',
+      'Custom built components including steppers, forms and connected them to Salesforce API',
+    ],
   },
   {
     company: 'Cabana',

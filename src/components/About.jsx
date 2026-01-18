@@ -101,34 +101,34 @@ function About() {
           <AboutText>
             <h3>Passionate Full Stack Developer</h3>
             <p>
-              I'm a full stack engineer specializing in React.js with extensive experience in team leadership and agile development. 
+              I'm a full stack engineer specializing in React.js and modern web technologies with extensive experience building scalable applications. 
               My journey in tech started early, working with computers since age 8, which sparked my lifelong passion for technology and problem-solving.
             </p>
             <p>
-              Currently, I lead a team of 5 developers at 1-800Accountant, where I manage sprint planning and coordinate cross-functional teams to deliver high-quality software solutions. 
-              I'm particularly passionate about projects that impact the environment and help people live simpler lives.
+              Currently, I'm working as a Senior Software Engineer at Funko, where I develop e-commerce solutions for collectibles and entertainment products. 
+              I architect microservices, build high-performance web applications, and collaborate with cross-functional teams to deliver engaging digital experiences for collectors worldwide.
             </p>
             <p>
-              When I'm not coding, I enjoy exploring new technologies, contributing to open source projects, and mentoring junior developers.
+              When I'm not coding, I enjoy exploring new technologies, contributing to open source projects, and building side projects that solve real-world problems.
             </p>
           </AboutText>
 
           <Stats>
             <StatItem>
-              <h4>5+</h4>
+              <h4>6+</h4>
               <p>Years Experience</p>
             </StatItem>
             <StatItem>
-              <h4>50+</h4>
+              <h4>60+</h4>
               <p>Projects Completed</p>
             </StatItem>
             <StatItem>
-              <h4>5</h4>
-              <p>Team Members Led</p>
+              <h4>Millions</h4>
+              <p>Users Served</p>
             </StatItem>
             <StatItem>
-              <h4>200%</h4>
-              <p>Booking Increase</p>
+              <h4>Enterprise</h4>
+              <p>Scale Solutions</p>
             </StatItem>
           </Stats>
         </AboutContent>

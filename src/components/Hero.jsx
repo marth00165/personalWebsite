@@ -115,6 +115,11 @@ const ScrollIndicator = styled.div`
   align-items: center;
   gap: 0.5rem;
   color: #666;
+  z-index: -1;
+  
+  @media (max-height: 700px) {
+    display: none;
+  }
   
   span {
     font-size: 0.875rem;

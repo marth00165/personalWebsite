@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import experience from '../data/experience'
 
 const ExperienceSection = styled.section`
-  padding: 5rem 0;
+  padding: 3rem 0;
   background: #f8f9fa;
 `
 
@@ -18,91 +18,104 @@ const Container = styled.div`
 `
 
 const SectionTitle = styled.h2`
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 0.5rem;
   color: #333;
 
   @media (min-width: 768px) {
-    font-size: 3rem;
+    font-size: 2.5rem;
+  }
+`
+
+const SectionSubtitle = styled.p`
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 2rem;
+`
+
+const TimelineContainer = styled.div`
+  position: relative;
+  overflow-x: auto;
+  padding: 2rem 0;
+  
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #0066cc;
+    border-radius: 4px;
   }
 `
 
 const Timeline = styled.div`
+  display: flex;
+  gap: 2rem;
+  min-width: min-content;
   position: relative;
-  max-width: 800px;
-  margin: 0 auto;
+  padding: 1rem 0.5rem;
 
   &::before {
     content: '';
     position: absolute;
-    left: 2rem;
-    top: 0;
-    bottom: 0;
-    width: 2px;
+    top: 2rem;
+    left: 0;
+    right: 0;
+    height: 2px;
     background: #0066cc;
-
-    @media (min-width: 768px) {
-      left: 50%;
-      transform: translateX(-50%);
-    }
+    z-index: 1;
   }
 `
 
 const ExperienceItem = styled.div`
   position: relative;
-  margin-bottom: 3rem;
-  padding-left: 5rem;
+  min-width: 320px;
+  max-width: 320px;
+  flex-shrink: 0;
+  z-index: 2;
 
-  @media (min-width: 768px) {
-    padding-left: 0;
-    width: 50%;
-    
-    &:nth-child(odd) {
-      margin-left: 0;
-      padding-right: 3rem;
-      text-align: right;
-      
-      &::before {
-        right: -6px;
-      }
-    }
-
-    &:nth-child(even) {
-      margin-left: 50%;
-      padding-left: 3rem;
-      
-      &::before {
-        left: -6px;
-      }
-    }
+  @media (max-width: 768px) {
+    min-width: 280px;
+    max-width: 280px;
   }
 
   &::before {
     content: '';
     position: absolute;
-    left: 1.25rem;
-    top: 0;
+    top: 1.75rem;
+    left: 50%;
+    transform: translateX(-50%);
     width: 12px;
     height: 12px;
     background: #0066cc;
     border-radius: 50%;
     border: 3px solid white;
     box-shadow: 0 0 0 3px #0066cc;
-
-    @media (min-width: 768px) {
-      top: 0.5rem;
-    }
+    z-index: 3;
   }
 `
 
 const ExperienceCard = styled.div`
   background: white;
-  padding: 2rem;
-  border-radius: 8px;
+  padding: 1.5rem;
+  border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   border: 1px solid #e9ecef;
+  margin-top: 4rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
 `
 
 const CompanyHeader = styled.div`
@@ -170,41 +183,84 @@ const CompanyLink = styled.a`
   }
 `
 
+const ReadMoreButton = styled.button`
+  background: none;
+  border: none;
+  color: #0066cc;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 1rem;
+  padding: 0;
+  text-decoration: underline;
+
+  &:hover {
+    color: #0052a3;
+  }
+
+  &:focus {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+  }
+`
+
 function Experience() {
+  const [expandedCards, setExpandedCards] = useState({})
+
+  const toggleCard = (index) => {
+    setExpandedCards(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }))
+  }
+
+  const getDisplayedAchievements = (achievements, index) => {
+    const isExpanded = expandedCards[index]
+    return isExpanded ? achievements : achievements.slice(0, 3)
+  }
   return (
     <ExperienceSection id="experience">
       <Container>
         <SectionTitle>Work Experience</SectionTitle>
+        <SectionSubtitle>My professional journey and achievements</SectionSubtitle>
         
-        <Timeline>
-          {experience.map((job, index) => (
-            <ExperienceItem key={index}>
-              <ExperienceCard>
-                <CompanyHeader>
-                  <h3>
-                    <CompanyLink 
-                      href={job.website} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      aria-label={`Visit ${job.company} website`}
-                    >
-                      {job.company}
-                    </CompanyLink>
-                  </h3>
-                  <h4>{job.position}</h4>
-                  <div className="duration">{job.duration}</div>
-                  <div className="location">{job.location}</div>
-                </CompanyHeader>
-                
-                <AchievementsList>
-                  {job.achievements.map((achievement, achievementIndex) => (
-                    <li key={achievementIndex}>{achievement}</li>
-                  ))}
-                </AchievementsList>
-              </ExperienceCard>
-            </ExperienceItem>
-          ))}
-        </Timeline>
+        <TimelineContainer>
+          <Timeline>
+            {experience.map((job, index) => (
+              <ExperienceItem key={index}>
+                <ExperienceCard>
+                  <CompanyHeader>
+                    <h3>
+                      <CompanyLink 
+                        href={job.website} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        aria-label={`Visit ${job.company} website`}
+                      >
+                        {job.company}
+                      </CompanyLink>
+                    </h3>
+                    <h4>{job.position}</h4>
+                    <div className="duration">{job.duration}</div>
+                    <div className="location">{job.location}</div>
+                  </CompanyHeader>
+                  
+                  <AchievementsList>
+                    {getDisplayedAchievements(job.achievements, index).map((achievement, achievementIndex) => (
+                      <li key={achievementIndex}>{achievement}</li>
+                    ))}
+                  </AchievementsList>
+                  
+                  {job.achievements.length > 3 && (
+                    <ReadMoreButton onClick={() => toggleCard(index)}>
+                      {expandedCards[index] ? 'Show Less' : `Read More (${job.achievements.length - 3} more)`}
+                    </ReadMoreButton>
+                  )}
+                </ExperienceCard>
+              </ExperienceItem>
+            ))}
+          </Timeline>
+        </TimelineContainer>
       </Container>
     </ExperienceSection>
   )

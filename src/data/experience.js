@@ -1,8 +1,36 @@
 const experience = [
   {
+    company: 'Walmart',
+    position: 'Senior Software Engineer',
+    duration: 'March 2024 - Present',
+    location: 'Remote',
+    website: 'https://walmart.com/',
+    achievements: [
+      'Lead development of enterprise-scale e-commerce solutions serving millions of customers',
+      'Architect and implement microservices using React, Node.js, and cloud infrastructure',
+      'Collaborate with cross-functional teams to deliver high-performance web applications',
+      'Optimize application performance and user experience for global retail platform',
+      'Mentor junior developers and contribute to engineering best practices',
+    ],
+  },
+  {
+    company: 'Funko',
+    position: 'Software Engineer',
+    duration: 'June 2022 - March 2024',
+    location: 'Remote',
+    website: 'https://funko.com/',
+    achievements: [
+      'Developed and maintained e-commerce platform for collectibles and entertainment products',
+      'Built responsive web applications using React, TypeScript, and modern JavaScript frameworks',
+      'Implemented inventory management systems and integrated with third-party APIs',
+      'Collaborated with design and product teams to create engaging user experiences',
+      'Optimized website performance resulting in improved conversion rates',
+    ],
+  },
+  {
     company: '1-800Accountant',
     position: 'Dev Team Lead and Software Engineer',
-    duration: 'February 2021 - Present',
+    duration: 'February 2021 - June 2022',
     location: 'Remote',
     website: 'https://1800accountant.com/',
     achievements: [

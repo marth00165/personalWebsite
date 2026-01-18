@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import projects from '../data/projects'
 
 const ProjectsSection = styled.section`
-  padding: 5rem 0;
+  padding: 3rem 0;
   background: #f8f9fa;
 `
 
@@ -18,29 +18,76 @@ const Container = styled.div`
 `
 
 const SectionTitle = styled.h2`
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 0.5rem;
   color: #333;
 
   @media (min-width: 768px) {
-    font-size: 3rem;
+    font-size: 2.5rem;
+  }
+`
+
+const SectionSubtitle = styled.p`
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+`
+
+const FilterButtons = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+`
+
+const FilterButton = styled.button`
+  padding: 0.5rem 1.25rem;
+  border-radius: 25px;
+  border: 2px solid #e9ecef;
+  background: ${props => props.active ? '#0066cc' : 'white'};
+  color: ${props => props.active ? 'white' : '#666'};
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: #0066cc;
+    color: ${props => props.active ? 'white' : '#0066cc'};
+  }
+`
+
+const ProjectsContainer = styled.div`
+  position: relative;
+  overflow-x: auto;
+  padding: 1rem 0;
+  
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #0066cc;
+    border-radius: 4px;
   }
 `
 
 const ProjectsGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  display: flex;
+  gap: 1.5rem;
+  min-width: min-content;
+  padding: 0 0.5rem;
 `
 
 const ProjectCard = styled.div`
@@ -50,10 +97,18 @@ const ProjectCard = styled.div`
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   border: 1px solid #e9ecef;
   transition: all 0.3s ease;
+  min-width: 350px;
+  max-width: 350px;
+  flex-shrink: 0;
 
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    min-width: 280px;
+    max-width: 280px;
   }
 `
 
@@ -172,59 +227,92 @@ const ProjectLink = styled.a`
 `
 
 function Projects() {
+  const [filter, setFilter] = useState('Featured')
+
+  const featuredProjects = projects.filter(project => project.featured)
+  const allProjects = projects
+
+  const displayedProjects = filter === 'Featured' ? featuredProjects : allProjects
+
   return (
     <ProjectsSection id="projects">
       <Container>
         <SectionTitle>Featured Projects</SectionTitle>
+        <SectionSubtitle>
+          A collection of projects showcasing my development skills
+        </SectionSubtitle>
         
-        <ProjectsGrid>
-          {projects.map((project, index) => (
-            <ProjectCard key={index}>
-              <ProjectImage image={project.image} />
-              
-              <ProjectContent>
-                <ProjectHeader>
-                  <h3>{project.title}</h3>
-                  <div className="subtitle">{project.subtitle}</div>
-                  <div className="date">{project.date}</div>
-                </ProjectHeader>
+        <FilterButtons>
+          <FilterButton 
+            active={filter === 'Featured'}
+            onClick={() => setFilter('Featured')}
+          >
+            Featured
+          </FilterButton>
+          <FilterButton 
+            active={filter === 'All'}
+            onClick={() => setFilter('All')}
+          >
+            All Projects
+          </FilterButton>
+        </FilterButtons>
+
+        <ProjectsContainer>
+          <ProjectsGrid>
+            {displayedProjects.map((project, index) => (
+              <ProjectCard key={index}>
+                <ProjectImage image={project.image} />
                 
-                <ProjectDescription>
-                  {project.description}
-                </ProjectDescription>
-                
-                <TechStack>
-                  {project.technologies.map((tech, techIndex) => (
-                    <TechTag key={techIndex}>{tech}</TechTag>
-                  ))}
-                </TechStack>
-                
-                <ProjectLinks>
-                  <ProjectLink 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="primary"
-                    aria-label={`View ${project.title} live demo`}
-                  >
-                    Live Demo
-                  </ProjectLink>
-                  {project.github && (
+                <ProjectContent>
+                  <ProjectHeader>
+                    <h3>{project.title}</h3>
+                    <div className="subtitle">{project.subtitle}</div>
+                    <div className="date">{project.date}</div>
+                  </ProjectHeader>
+                  
+                  <ProjectDescription>
+                    {project.description.length > 120 
+                      ? `${project.description.substring(0, 120)}...` 
+                      : project.description
+                    }
+                  </ProjectDescription>
+                  
+                  <TechStack>
+                    {project.technologies.slice(0, 4).map((tech, techIndex) => (
+                      <TechTag key={techIndex}>{tech}</TechTag>
+                    ))}
+                    {project.technologies.length > 4 && (
+                      <TechTag>+{project.technologies.length - 4}</TechTag>
+                    )}
+                  </TechStack>
+                  
+                  <ProjectLinks>
                     <ProjectLink 
-                      href={project.github} 
+                      href={project.link} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="secondary"
-                      aria-label={`View ${project.title} source code`}
+                      className="primary"
+                      aria-label={`View ${project.title} live demo`}
                     >
-                      GitHub
+                      Live Demo
                     </ProjectLink>
-                  )}
-                </ProjectLinks>
-              </ProjectContent>
-            </ProjectCard>
-          ))}
-        </ProjectsGrid>
+                    {project.github && (
+                      <ProjectLink 
+                        href={project.github} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="secondary"
+                        aria-label={`View ${project.title} source code`}
+                      >
+                        GitHub
+                      </ProjectLink>
+                    )}
+                  </ProjectLinks>
+                </ProjectContent>
+              </ProjectCard>
+            ))}
+          </ProjectsGrid>
+        </ProjectsContainer>
       </Container>
     </ProjectsSection>
   )

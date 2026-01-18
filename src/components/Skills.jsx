@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { skills, skillCategories } from '../data/skills'
 
 const SkillsSection = styled.section`
-  padding: 5rem 0;
+  padding: 3rem 0;
   background: white;
 `
 
@@ -18,14 +18,14 @@ const Container = styled.div`
 `
 
 const SectionTitle = styled.h2`
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   color: #333;
 
   @media (min-width: 768px) {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 `
 
@@ -59,6 +59,28 @@ const FilterButton = styled.button`
   }
 `
 
+const SkillsContainer = styled.div`
+  max-height: ${props => props.showAll ? '400px' : 'none'};
+  overflow-y: ${props => props.showAll ? 'auto' : 'visible'};
+  padding: ${props => props.showAll ? '1rem 0.5rem' : '0'};
+  
+  ${props => props.showAll && `
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: #0066cc;
+      border-radius: 4px;
+    }
+  `}
+`
+
 const SkillsGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
@@ -69,13 +91,13 @@ const SkillsGrid = styled.div`
   }
 
   @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: ${props => props.showAll ? 'repeat(4, 1fr)' : 'repeat(3, 1fr)'};
   }
 `
 
 const SkillItem = styled.div`
   background: #f8f9fa;
-  padding: 1.5rem;
+  padding: 1.25rem;
   border-radius: 8px;
   border: 1px solid #e9ecef;
   transition: all 0.3s ease;
@@ -163,22 +185,24 @@ function Skills() {
           ))}
         </FilterButtons>
 
-        <SkillsGrid>
-          {filteredSkills.map((skill, index) => (
-            <SkillItem key={index}>
-              <SkillHeader>
-                <h3>{skill.name}</h3>
-                <div className="level">{skill.level}%</div>
-              </SkillHeader>
-              
-              <ProgressBar>
-                <Progress level={skill.level} />
-              </ProgressBar>
-              
-              <CategoryTag>{skill.category}</CategoryTag>
-            </SkillItem>
-          ))}
-        </SkillsGrid>
+        <SkillsContainer showAll={activeCategory === 'All'}>
+          <SkillsGrid showAll={activeCategory === 'All'}>
+            {filteredSkills.map((skill, index) => (
+              <SkillItem key={index}>
+                <SkillHeader>
+                  <h3>{skill.name}</h3>
+                  <div className="level">{skill.level}%</div>
+                </SkillHeader>
+                
+                <ProgressBar>
+                  <Progress level={skill.level} />
+                </ProgressBar>
+                
+                <CategoryTag>{skill.category}</CategoryTag>
+              </SkillItem>
+            ))}
+          </SkillsGrid>
+        </SkillsContainer>
       </Container>
     </SkillsSection>
   )

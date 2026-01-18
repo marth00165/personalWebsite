@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const AboutSection = styled.section`
-  padding: 5rem 0;
+  padding: 3rem 0;
   background: white;
 `
 
@@ -17,14 +17,14 @@ const Container = styled.div`
 `
 
 const SectionTitle = styled.h2`
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   color: #333;
 
   @media (min-width: 768px) {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 `
 

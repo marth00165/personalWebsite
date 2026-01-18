@@ -1,0 +1,50 @@
+const experience = [
+  {
+    company: '1-800Accountant',
+    position: 'Dev Team Lead and Software Engineer',
+    duration: 'February 2021 - Present',
+    location: 'Remote',
+    website: 'https://1800accountant.com/',
+    achievements: [
+      'Manage a team of 5 multicultural developers working remotely',
+      'Lead Sprint Planning for development team, working in 2 week sprints delivering 100-130 story points per sprint',
+      'Coordinate between marketing and development teams to increase sales on a weekly basis',
+      'Developed full stack responsive website using React Next.js, Node Express, and custom UI components with styled-components',
+      'Built marketing campaign pages and form funnels to gather customer leads and drive entity formation sales',
+      'Custom built components including steppers and forms connected to Salesforce API',
+    ],
+  },
+  {
+    company: 'Cabana',
+    position: 'Software Engineer',
+    duration: 'January 2019 - November 2020',
+    location: 'Seattle, WA',
+    website: 'https://cabana.life',
+    achievements: [
+      'Developed full stack responsive website using React.js, Node Express, Material UI, and Mapbox',
+      'Integrated with WheelBase API for on-site bookings, increasing bookings by 200%',
+      'Increased website traffic by 150% using Google Analytics optimization',
+      'Built Front Office Booking Application with user accounts and booking tracking, increasing bookings by 50%',
+      'Developed Back Office application for operations team, improving workflow efficiency by 50%',
+      'Used React-Redux and React Context for state management',
+      'Implemented comprehensive testing with React Testing Library',
+    ],
+  },
+  {
+    company: 'Stackend Solutions',
+    position: 'Full Stack Engineer',
+    duration: 'October 2019 - February 2020',
+    location: 'Remote',
+    website: 'https://stackendsolutions.com/',
+    achievements: [
+      'Developed dynamic web applications using JavaScript, React Redux, and Python Django with Agile practices',
+      'Worked on Conmitto Project, an MRO (maintenance, repair, & operations) app as Front End React Redux Developer',
+      'Created new navigation menu that increased user engagement',
+      'Implemented token refreshing and session management to increase user session duration',
+      'Built Redux functions to manage user state for seamless application interaction',
+      'Applied Test Driven Development using Cypress Testing Library',
+    ],
+  },
+];
+
+export default experience;
